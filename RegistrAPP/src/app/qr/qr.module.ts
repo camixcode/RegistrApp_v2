@@ -9,6 +9,7 @@ import { QRPageRoutingModule } from './qr-routing.module';
 import { QrPage } from './qr.page';
 
 import {MatIconModule} from '@angular/material/icon';
+import { QRCodeModule } from 'angularx-qrcode';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import {MatIconModule} from '@angular/material/icon';
     FormsModule,
     IonicModule,
     QRPageRoutingModule,
-    MatIconModule
+    MatIconModule,
+    QRCodeModule
   ],
   declarations: [QrPage]
 })
