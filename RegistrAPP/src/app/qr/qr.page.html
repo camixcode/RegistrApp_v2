@@ -23,13 +23,21 @@
       <ion-icon name="person" slot="start"></ion-icon>
       <ion-label>Perfil</ion-label>
     </ion-item>
+    <ion-item [routerLink]="['/curso']">
+      <ion-icon name="calendar"  slot="start"></ion-icon>
+      <ion-label>Cursos</ion-label>
+    </ion-item>
     <ion-item [routerLink]="['/asistencia']">
       <ion-icon name="calendar"  slot="start"></ion-icon>
       <ion-label>Asistencia</ion-label>
     </ion-item>
-    <ion-item [routerLink]="['/qr']">
-      <ion-icon name="qr-scanner" slot="start"></ion-icon>
+    <ion-item [routerLink]="['/generar-qr']">
+      <ion-icon name="qr-code-outline" slot="start"></ion-icon>
      <ion-label>leer qr</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/qr']">
+      <ion-icon name="qr-code-outline" slot="start"></ion-icon>
+     <ion-label>Registrar asistencia</ion-label>
     </ion-item>
     <ion-item (click)="salir()">
       <ion-icon name="log-out"  slot="start"></ion-icon>
