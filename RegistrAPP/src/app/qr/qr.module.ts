@@ -6,15 +6,19 @@ import { IonicModule } from '@ionic/angular';
 
 import { QRPageRoutingModule } from './qr-routing.module';
 
-import { QRPage } from './qr.page';
+import { QrPage } from './qr.page';
+
+import {MatIconModule} from '@angular/material/icon';
+
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    QRPageRoutingModule
+    QRPageRoutingModule,
+    MatIconModule
   ],
-  declarations: [QRPage]
+  declarations: [QrPage]
 })
-export class QRPageModule {}
+export class QrPageModule {}

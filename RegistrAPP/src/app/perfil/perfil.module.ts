@@ -8,12 +8,17 @@ import { PerfilPageRoutingModule } from './perfil-routing.module';
 
 import { PerfilPage } from './perfil.page';
 
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatIconModule} from '@angular/material/icon';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    PerfilPageRoutingModule
+    PerfilPageRoutingModule,
+    MatBadgeModule,
+    MatIconModule
   ],
   declarations: [PerfilPage]
 })

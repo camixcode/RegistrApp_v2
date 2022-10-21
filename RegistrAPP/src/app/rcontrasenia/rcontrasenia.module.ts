@@ -7,13 +7,15 @@ import { IonicModule } from '@ionic/angular';
 import { RContraseniaPageRoutingModule } from './rcontrasenia-routing.module';
 
 import { RContraseniaPage } from './rcontrasenia.page';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    RContraseniaPageRoutingModule
+    RContraseniaPageRoutingModule,
+    MatIconModule
   ],
   declarations: [RContraseniaPage]
 })

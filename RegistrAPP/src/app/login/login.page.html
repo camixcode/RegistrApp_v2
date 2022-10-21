@@ -1,9 +1,39 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
+  <ion-toolbar color="success">
+    <h1 style="text-align: center;">RegistrAPP</h1>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  
 
+    <h3 style="text-align: center;">LOGIN</h3>
+
+    <center>
+      <ion-thumbnail> 
+        <img alt="Silhouette of mountains" src="./assets/icon/Muni.jpeg" />
+    </ion-thumbnail>
+  </center>
+    <br><br>
+    <ion-item>
+      <ion-label position="stacked">Nombre de usuario</ion-label>
+      <ion-input id="nombreUsuario" placeholder="Nombre Usuario"[(ngModel)]="usuario.nombreUsuario"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label type="Password" position="floating">Contraseña</ion-label>
+      <ion-input id="password" type="Password" minlength="3" maxlength="8" [(ngModel)]="usuario.password"></ion-input>
+      <br>
+    </ion-item>
+    <ion-button (click)="ingresar()" expand="block" color="success" >Inicio Sesión </ion-button>
 </ion-content>
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+
+<ion-footer>
+  <ion-toolbar color="success">
+   <center>
+    <ion-button href="rcontrasenia" color="warning"><mat-icon>sync_lock</mat-icon></ion-button>
+    <ion-button href="home" color="warning"><mat-icon>add_reaction</mat-icon></ion-button>
+  </center> 
+  </ion-toolbar>
+</ion-footer>

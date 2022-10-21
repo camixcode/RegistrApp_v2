@@ -1,9 +1,30 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>docente</ion-title>
-  </ion-toolbar>
-</ion-header>
+  <center><ion-toolbar color="success">
+     <ion-title center>RegistrAPP</ion-title>
+     <ion-buttons slot="start"> <ion-back-button></ion-back-button></ion-buttons>
+   </ion-toolbar></center> 
+ </ion-header>
 
-<ion-content>
+    <ion-content>
+      <br>
+          <h3 style="text-align: center;">Hola Docente!</h3>
+          <h4 style="text-align: center;">Genera tu QR para registrar la asistencia de tus alumnos</h4>
+      <br>
+          <center>
+            <ion-thumbnail> 
+              <img alt="Silhouette of mountains" src="./assets/icon/QR.png" />
+          </ion-thumbnail>
+        </center>
+          <br><br>
+          <ion-button (click)="ingresar()" expand="block" color="success" >GENERAR QR </ion-button>
+      </ion-content>
 
-</ion-content>
+ 
+ 
+   <ion-footer>
+     <ion-toolbar color="success">
+      <center>
+       <ion-button href="login" color="warning"><mat-icon>exit_to_app</mat-icon></ion-button>
+     </center> 
+     </ion-toolbar>
+   </ion-footer>

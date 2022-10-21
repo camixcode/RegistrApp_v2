@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { IngresarGuard } from './ingresar.guard';
+import { NoIngresarGuard } from './no-ingresar.guard';
 
 const routes: Routes = [
   {
@@ -8,41 +10,52 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
-  {
+  { 
     path: 'asistencia',
-    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule)
+    loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
+    canActivate: [IngresarGuard]
+  },
+  {
+    path: 'perfil',
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule),
+    canActivate: [IngresarGuard]
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    canActivate: [NoIngresarGuard]
+  },
+  {
+    path: 'rcontrasenia',
+    loadChildren: () => import('./rcontrasenia/rcontrasenia.module').then( m => m.RContraseniaPageModule),
+    canActivate: [NoIngresarGuard]
+  },
+  {
+    path: 'qr',
+    loadChildren: () => import('./qr/qr.module').then( m => m.QrPageModule),
+    canActivate: [IngresarGuard]
+  },
+  {
+    path: 'docente',
+    loadChildren: () => import('./docente/docente.module').then( m => m.DocentePageModule),
+    canActivate: [IngresarGuard]
+  },
+  {
+    path: 'generar-qr',
+    loadChildren: () => import('./generar-qr/generar-qr.module').then( m => m.GenerarQRPageModule),
+    canActivate: [IngresarGuard]
   },
   {
     path: 'curso',
     loadChildren: () => import('./curso/curso.module').then( m => m.CursoPageModule)
   },
-  {
-    path: 'docente',
-    loadChildren: () => import('./docente/docente.module').then( m => m.DocentePageModule)
-  },
-  {
-    path: 'generar-qr',
-    loadChildren: () => import('./generar-qr/generar-qr.module').then( m => m.GenerarQRPageModule)
-  },
-  {
-    path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
-  },
-  {
-    path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
-  {
-    path: 'qr',
-    loadChildren: () => import('./qr/qr.module').then( m => m.QRPageModule)
-  },
-  {
-    path: 'rcontrasenia',
-    loadChildren: () => import('./rcontrasenia/rcontrasenia.module').then( m => m.RContraseniaPageModule)
-  },
+
+  
+
+
 ];
 
 @NgModule({

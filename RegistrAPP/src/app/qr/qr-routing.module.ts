@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { QRPage } from './qr.page';
+import { QrPage } from './qr.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: QRPage
+    component: QrPage
   }
 ];
 

@@ -1,20 +1,70 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="success">
+    <h1 style="text-align: center;">RegistrAPP</h1>
   </ion-toolbar>
 </ion-header>
+<ion-content>
+      <h3 style="text-align: center;">Crear cuenta</h3>
+      <h4 style="text-align: center;">Todos los campos son obligatorios</h4>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-item>
+        <ion-label position="fixed">Nombre Usuario</ion-label>
+        <ion-input [(ngModel)]="usuarioBD.nombreUsuario" id="nombreUsuario"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">Nombre</ion-label>
+        <ion-input [(ngModel)]="usuarioBD.nombre" id="nombre" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="fixed">Apellido</ion-label>
+        <ion-input [(ngModel)]="usuarioBD.apellido" id="apellido"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="fixed">Correo</ion-label>
+        <ion-input [(ngModel)]="usuarioBD.correo" id="correo"></ion-input>
+      </ion-item>
+      
+      <ion-list>
+        <ion-item>
+          <ion-select [(ngModel)]="usuarioBD.nivelEducacion" placeholder="Selccione Escuela">
+            <ion-select-option value="Tecnico">Técnico</ion-select-option>
+            <ion-select-option value="Ingieneria">Ingeniería</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <ion-item>
+        <ion-label position="fixed" >Fecha nacimiento</ion-label>
+        <ion-input type="date" id="fechaNacimiento" [(ngModel)]="usuarioBD.fechaNacimiento" ></ion-input>
+      </ion-item>
+
+      <ion-list>
+        <ion-item>
+          <ion-select [(ngModel)]="usuarioBD.tipoUsuario" placeholder="Tipo de Usuario">
+            <ion-select-option value="alumno">alumno</ion-select-option>
+            <ion-select-option value="profesor">profesor</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+
+      <ion-item>
+        <ion-label position="fixed" >Contrseña</ion-label>
+        <ion-input type="password" id="password" [(ngModel)]="usuarioBD.password"></ion-input>
+      </ion-item>
+      <br>
+      <center>
+      <ion-button color="warning" (click)="execute()">Limpiar</ion-button>
+      <ion-button color="success" (click)="guardar()">guardar</ion-button>
+    </center>
+  </ion-content>
+  <ion-footer>
+
+
+    <ion-toolbar color="success">
+     <center>
+      <ion-button href="login" color="warning"><mat-icon>vpn_key</mat-icon></ion-button>
+    </center> 
     </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+  </ion-footer>
