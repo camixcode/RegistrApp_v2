@@ -3,12 +3,14 @@ import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { ApiService } from '../services/api.service';
+
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.page.html',
   styleUrls: ['./curso.page.scss'],
 })
 export class CursoPage implements OnInit {
+  cursos: any =[];
 
   constructor(
     private http : HttpClient,
@@ -26,8 +28,22 @@ export class CursoPage implements OnInit {
       this.arrayPosts = data;
     });
   }
+
+  getUsers(){
+    return this.http
+    .get("assets/files/cursos.json")
+    .pipe(
+      map((res:any) =>{
+        return res.data
+      })
+    )
+  }
   
   ngOnInit() {
+    this.getUsers().subscribe(res =>{
+      console.log("Res",res)
+      this.cursos = res;
+    } )
   }
 
   

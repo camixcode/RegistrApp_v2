@@ -57,14 +57,13 @@
 
 <ion-content>
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor="let curso of cursos">
       <ion-avatar>
-        <ion-icon>
-        </ion-icon>
+        <ion-icon name="briefcase"></ion-icon>
       </ion-avatar>
       <ion-label>
-        <h2>Curso : </h2>
-        <h3> Profesor : </h3>
+        <h3>Curso : {{curso.curso}}</h3>
+        <h3> Profesor : {{curso.profesor}} </h3>
       </ion-label>
     </ion-item>
   </ion-list>
