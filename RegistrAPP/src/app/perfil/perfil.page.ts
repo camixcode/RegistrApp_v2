@@ -32,7 +32,7 @@ export class PerfilPage implements OnInit {
       setTimeout("location.href='/login'", 3000);
       localStorage.removeItem('ingresado');
       let secionIniciada = JSON.parse(localStorage.getItem('ingresado'));
-      console.log(secionIniciada)
+      console.log(false)
   }
 
   

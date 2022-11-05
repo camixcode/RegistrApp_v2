@@ -42,6 +42,7 @@ export class LoginPage implements OnInit {
       console.log(secionIniciada)
 
 
+
     }else if (this.usuario.nombreUsuario==usuarioBD.nombreUsuario && this.usuario.password != usuarioBD.password){
       const alert = await this.alertController.create({
         subHeader: 'Usuario',
