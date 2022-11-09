@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { UsuarioService } from '../services/usuario.service';
+import {HttpClient} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
+import { ModalController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
