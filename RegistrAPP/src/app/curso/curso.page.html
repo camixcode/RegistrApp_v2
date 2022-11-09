@@ -23,7 +23,7 @@
       <ion-icon name="person" slot="start"></ion-icon>
       <ion-label>Perfil</ion-label>
     </ion-item>
-    <ion-item [routerLink]="['/curso']">
+    <ion-item [routerLink]="['/cursos']">
       <ion-icon name="calendar"  slot="start"></ion-icon>
       <ion-label>Cursos</ion-label>
     </ion-item>
@@ -56,20 +56,45 @@
   </ion-toolbar>
 </ion-header>
 
-</div>
-
-
 <ion-content>
+  <h1>Listado notas rapidas</h1>
+
+  <ion-searchbar id="buscar" (ionInput)="getItems($event)"></ion-searchbar>
+
   <ion-list>
-    <ion-item *ngFor="let curso of cursos">
-      <ion-avatar>
-        <ion-icon name="briefcase"></ion-icon>
-      </ion-avatar>
-      <ion-label>
-        <h3 style="word-wrap: break-word; white-space: normal;">Curso : {{curso.curso}}</h3>
-        <h3 style="word-wrap: break-word; white-space: normal;"> Profesor : {{curso.profesor}} </h3>
-      </ion-label>
-    </ion-item>
+    <ion-item-sliding *ngFor="let curso of cursos">
+      <ion-item >
+
+
+        <ion-icon name="albums-outline" slot="start"></ion-icon>
+        <ion-list>
+          <h3>Curso : {{curso.curso}}</h3>
+          <label>Profesor :{{curso.profesor}}</label>
+        </ion-list>
+       
+
+      </ion-item>
+      <br>
+
+      <ion-item-options>
+        <ion-item-option (click)="irEditar()">
+          <ion-icon name="create"></ion-icon>Editar
+        </ion-item-option>
+        <ion-item-option color="danger">
+          <ion-icon name="trash"></ion-icon>Eliminar
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
+
+
+  <!-- fab placed to the bottom end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="getCursos()">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
 
 </ion-content>

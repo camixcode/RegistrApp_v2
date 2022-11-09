@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { ApiService } from '../services/api.service';
+import { Router } from '@angular/router';
+import { ModalController, NavController } from '@ionic/angular';
+import { FirestoreService } from '../services/firestore.service';
 
 @Component({
   selector: 'app-curso',
@@ -10,43 +12,68 @@ import { ApiService } from '../services/api.service';
   styleUrls: ['./curso.page.scss'],
 })
 export class CursoPage implements OnInit {
-  cursos: any =[];
 
   constructor(
     private http : HttpClient,
-    private api : ApiService
-  ) { }
+    private router: Router,
+    public navCtrl : NavController,
+    public modalController : ModalController,
+    public fireStore : FirestoreService
+    ) { }
 
-  arrayPosts:any; //Creamos la variable donde guardaremos los datos que nos retorna el servicio
-  ionViewDidLoad() {
-    this.getPosts();//Llamamos a la función getPost cuando la vista se cargue
-  }
-
-  getPosts() { //llamamos a la funcion getPost de nuestro servicio.
-    this.api.getPosts()
-    .then(data => {
-      this.arrayPosts = data;
-    });
-  }
-
-  getUsers(){
-    return this.http
-    .get("assets/files/cursos.json")
-    .pipe(
-      map((res:any) =>{
-        return res.data
-      })
-    )
-  }
+  private path = 'Curso/';
+  cursos = [];
   
+
   ngOnInit() {
-    this.getUsers().subscribe(res =>{
-      console.log("Res",res)
-      this.cursos = res;
-    } )
+    this.getCursos();
+
+    
+  }
+  getItems($event){
+    const valor = $event.target.value;
+    console.log(valor)
+    if(valor==null){
+      this.fireStore.getCollection(this.path).subscribe(res =>{
+        console.log(res)
+        this.cursos= res;
+      })
+    }else{
+      this.fireStore.getCollectionId(this.path,'curso',valor).subscribe(res =>{
+        console.log(res)
+        this.cursos= res;
+      })
+    }
+    return valor;
   }
 
-  
 
+  irEditar(){
+ 
+      this.router.navigate(['/editar-curso'])
 
+  }
+
+  getCursos(){
+    this.fireStore.getCollection(this.path).subscribe(res =>{
+      console.log(res)
+      this.cursos= res;
+    })
+    
+
+  }
+
+  getCurso(){
+    this.fireStore.getCollectionId(this.path,'curso','Etica').subscribe(res =>{
+      console.log(res)
+      this.cursos= res;
+    })
+    
+
+  }
+  irAgregar(){
+ 
+    this.router.navigate(['/agregar-curso'])
+
+}
 }
