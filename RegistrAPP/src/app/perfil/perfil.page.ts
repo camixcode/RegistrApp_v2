@@ -7,7 +7,7 @@ import {map} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
-
+import { MenuController } from '@ionic/angular';
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.page.html',
@@ -18,13 +18,18 @@ export class PerfilPage implements OnInit {
   constructor(
     private alertController: AlertController,
     private activatedRoute: ActivatedRoute,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public menu : MenuController
 
     ) {}
    usuarioBD = JSON.parse(localStorage.getItem('usuarioBD'));
   ngOnInit() {
+    this.open();
   }
 
+  open(){
+    this.menu.open();
+  }
   volver(){
     window.location.href='/home'
   }
