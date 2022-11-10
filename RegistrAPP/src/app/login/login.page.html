@@ -1,39 +1,42 @@
 <ion-header>
-  <ion-toolbar color="success">
-    <h1 style="text-align: center;">RegistrAPP</h1>
+  <ion-toolbar color="warning">
+    <h2 style="text-align: center;">RegistrAPP</h2>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
   
 
-    <h3 style="text-align: center;">LOGIN</h3>
-
+    <!-- <h3 style="text-align: center;">LOGIN</h3> -->
+<br>
     <center>
       <ion-img style="width: 90px; height: 90px;"  src="./assets/icon/DuocUC.jpg"></ion-img>
   
   </center>
     <br><br>
     <ion-item>
-      <ion-label position="stacked">Nombre de usuario</ion-label>
-      <ion-input id="nombreUsuario" placeholder="Nombre Usuario"[(ngModel)]="usuario.nombreUsuario"></ion-input>
+      <ion-label position="floating">Nombre de usuario</ion-label>
+      <ion-input id="nombreUsuario" placeholder=""[(ngModel)]="usuario.nombreUsuario"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label type="Password" position="floating">Contraseña</ion-label>
       <ion-input id="password" type="Password" minlength="3" maxlength="8" [(ngModel)]="usuario.password"></ion-input>
       <br>
     </ion-item>
-    <ion-button (click)="ingresar()" expand="block" color="success" >Inicio Sesión </ion-button>
+    <br>
+    <ion-button (click)="ingresar()" expand="block" color="warning">Inicio Sesión </ion-button>
+    <br>
+    <center>
+      <ion-button fill="clear" size="small">Recuperar contraseña</ion-button>
+    </center>
+    
 </ion-content>
 <mat-progress-bar mode="indeterminate"></mat-progress-bar>
 
 
-<ion-footer>
-  <ion-toolbar color="success">
-   <center>
-    <ion-button href="rcontrasenia" color="warning"><mat-icon>sync_lock</mat-icon></ion-button>
-    <ion-button href="home" color="warning"><ion-icon name="person-add-outline"></ion-icon></ion-button>
-
-  </center> 
+<ion-footer collapse="fade">
+  <ion-toolbar color="warning">
+        <ion-text color="dark"><h5 style="text-align: center;">Creado por: Cami-Diego-Yerko</h5>
+        </ion-text> 
   </ion-toolbar>
 </ion-footer>

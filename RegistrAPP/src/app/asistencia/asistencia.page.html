@@ -1,11 +1,16 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
+<!-- nav y titulo -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>RegistrAPP</ion-title>
+    <ion-title><h2 style="text-align:center">RegistrAPP</h2></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login.page"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<!--Fin nav y titulo -->
 
 
 <ion-menu contentId="main-content">
@@ -74,3 +79,12 @@
   </ion-item>
 </ion-list>
 </ion-content>
+
+
+<!-- Footer -->
+<ion-footer collapse="fade">
+  <ion-toolbar color="warning">
+        <ion-text color="dark"><h5 style="text-align: center;">Creado por: Cami-Diego-Yerko</h5>
+        </ion-text> 
+  </ion-toolbar>
+</ion-footer>

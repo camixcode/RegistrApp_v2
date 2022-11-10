@@ -1,17 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
+
+<!-- nav y titulo -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>RegistrAPP</ion-title>
+    <ion-title><h2 style="text-align:center">RegistrAPP</h2></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login.page"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
-
+<!--Fin nav y titulo -->
 
 <ion-menu contentId="main-content">
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="end">
+  <ion-toolbar color="warning">
+    <ion-buttons  slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>Menu </ion-title>
@@ -43,8 +48,6 @@
       <ion-icon name="log-out"  slot="start"></ion-icon>
       <ion-label>Cerrar sesion</ion-label>
     </ion-item>
-
-
   </ion-menu-toggle>
 </ion-content>
 </ion-menu>
@@ -55,12 +58,11 @@
     <ion-title>Menu</ion-title>
   </ion-toolbar>
 </ion-header>
-
 </div>
 
-
+<!-- CONTENIDO DE PAGINA -->
   
-  <ion-content>
+<ion-content [fullscreen]="true" class="ion-padding">
 
     <br>
       <h3 style="text-align: center;">Perfil Alumno</h3>
@@ -98,23 +100,8 @@
   </ion-content>
 
 
-  <ion-tabs>
-    <ion-tab-bar slot="bottom">
-      <ion-tab-button tab="perfil" [routerLink]="['/perfil']">
-        <ion-icon name="person"></ion-icon>
-        <ion-label>Perfil</ion-label>
-        <ion-badge>6</ion-badge>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="calendar" [routerLink]="['/asistencia']">
-        <ion-icon name="calendar"></ion-icon>
-        <ion-label>Asistencia</ion-label>
-      </ion-tab-button>
-  
-      <ion-tab-button tab="log-out" (click)="salir()">
-        <ion-icon name="log-out"></ion-icon>
-        <ion-label>Salir</ion-label>
-      </ion-tab-button>
-  
-    </ion-tab-bar>
-  </ion-tabs>
+  <ion-footer [translucent]="true">
+    <ion-toolbar color="warning">
+      <ion-text><h4 style="text-align: center">Creadores:Cami-Diego-Yerko</h4></ion-text>
+    </ion-toolbar>
+  </ion-footer>

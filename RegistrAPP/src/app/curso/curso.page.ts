@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
 import { FirestoreService } from '../services/firestore.service';
 
+
 @Component({
   selector: 'app-curso',
   templateUrl: './curso.page.html',

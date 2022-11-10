@@ -1,16 +1,21 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
+<!-- nav y titulo -->
+<ion-header [translucent]="true">
+  <ion-toolbar color="warning">
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>RegistrAPP</ion-title>
+    <ion-title><h2 style="text-align:center">RegistrAPP</h2></ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="login.page"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<!--Fin nav y titulo -->
 
 
 <ion-menu contentId="main-content">
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="warning">
     <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
@@ -49,21 +54,24 @@
 
 
 
-<ion-content style="background-color: rgb(13, 83, 145);">
+<ion-content style="background-color: rgb(16, 131, 231);">
   <br>
   <br><br><br>
-  <ion-card style="background-color: rgb(41, 41, 161);">
+  <ion-card style="background-color: rgb(157, 187, 229);">
     <ion-card-header>
       <ion-card-title style="text-align: center ; ">Registrar asistencia</ion-card-title>
       <br>
-      <ion-card-subtitle style="text-align: center;">Click en el boton</ion-card-subtitle>
+      <ion-card-subtitle color="light" style="text-align: center;">Click en el boton</ion-card-subtitle>
     </ion-card-header>
-  
     <ion-card-content>
       <ion-button expand="block" class="ion-margin" (click)="getTakePhoto()">tomar foto</ion-button>
     </ion-card-content>
   </ion-card>
-
-  
-
 </ion-content>
+
+<ion-footer collapse="fade">
+  <ion-toolbar color="warning">
+        <ion-text color="dark"><h5 style="text-align: center;">Creado por: Cami-Diego-Yerko</h5>
+        </ion-text> 
+  </ion-toolbar>
+</ion-footer>
