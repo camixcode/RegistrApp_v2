@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
 import { FirestoreService } from '../services/firestore.service';
+import { ApiService } from '../services/api.service';
 
 
 @Component({
@@ -19,18 +20,36 @@ export class CursoPage implements OnInit {
     private router: Router,
     public navCtrl : NavController,
     public modalController : ModalController,
-    public fireStore : FirestoreService
+    public fireStore : FirestoreService,
+    public api : ApiService,
+
     ) { }
 
   private path = 'Curso/';
   cursos = [];
-  
+  sedes =[];
 
   ngOnInit() {
-    this.getCursos();
 
+    this.getCursos();
+    
     
   }
+
+  
+  getCursosLocal(){
+    this.api.getUsers().subscribe(res =>{
+      console.log("Res",res)
+      this.cursos = res;
+    } )
+  }
+  getSede(){
+    this.api.getSedes().subscribe(res =>{
+      console.log("Res",res)
+      this.sedes = res;
+    } )
+  }
+
   getItems($event){
     const valor = $event.target.value;
     console.log(valor)

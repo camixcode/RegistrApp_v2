@@ -21,6 +21,15 @@ export class ApiService {
       })
     )
   }
+  getSedes(){
+    return this.http
+    .get("assets/files/sedes.json")
+    .pipe(
+      map((res:any) =>{
+        return res.data
+      })
+    )
+  }
 
 
   getPosts() {

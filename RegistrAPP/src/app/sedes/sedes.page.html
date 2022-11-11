@@ -1,4 +1,3 @@
-
 <!-- nav y titulo -->
 <ion-header [translucent]="true">
   <ion-toolbar color="warning">
@@ -13,13 +12,14 @@
 </ion-header>
 <!--Fin nav y titulo -->
 
+
 <ion-menu contentId="main-content">
 <ion-header>
   <ion-toolbar color="warning">
-    <ion-buttons  slot="end">
+    <ion-buttons slot="end">
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
-    <ion-title>Menu </ion-title>
+    <ion-title>Sedes </ion-title>
   </ion-toolbar>
 </ion-header>
 <ion-content class="ion-padding">
@@ -36,10 +36,6 @@
       <ion-icon name="calendar"  slot="start"></ion-icon>
       <ion-label>Asistencia</ion-label>
     </ion-item>
-    <ion-item [routerLink]="['/sedes']">
-      <ion-icon name="calendar"  slot="start"></ion-icon>
-      <ion-label>Sedes</ion-label>
-    </ion-item>
     <ion-item [routerLink]="['/generar-qr']">
       <ion-icon name="qr-code-outline" slot="start"></ion-icon>
      <ion-label>leer qr</ion-label>
@@ -52,6 +48,8 @@
       <ion-icon name="log-out"  slot="start"></ion-icon>
       <ion-label>Cerrar sesion</ion-label>
     </ion-item>
+
+
   </ion-menu-toggle>
 </ion-content>
 </ion-menu>
@@ -62,50 +60,51 @@
     <ion-title>Menu</ion-title>
   </ion-toolbar>
 </ion-header>
-</div>
 
-<!-- CONTENIDO DE PAGINA -->
-  
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content>
+  <h3 style="text-align:center">Lista de cursos</h3>
 
-    <br>
-      <h3 style="text-align: center;">Perfil Alumno</h3>
-      <center>
-        <ion-avatar>
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" />
-      </ion-avatar>
-    </center>
-      <ion-item>
-        <ion-label position="stacked">Nombre usuario : {{usuarioBD.nombreUsuario}}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Nombre : {{usuarioBD.nombre}}</ion-label>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Apellido : {{usuarioBD.apellido}}</ion-label>
-      </ion-item>
+  <ion-searchbar id="buscar" (ionInput)="getItems($event)"></ion-searchbar>
 
-      <ion-item>
-        <ion-label position="stacked">F.Nacimiento : {{usuarioBD.fechaNacimiento}}</ion-label>
-      </ion-item>
+  <ion-list>
+    <ion-item-sliding *ngFor="let sede of sedes">
+      <ion-item >
 
-      <ion-item>
-        <ion-label position="stacked">Nivel educacion : {{usuarioBD.nivelEducacion}}</ion-label>
-      </ion-item>
 
-      <ion-item>
-        <ion-label position="stacked">Correo : {{usuarioBD.correo}}</ion-label>
-      </ion-item>
+        <ion-icon name="albums-outline" slot="start"></ion-icon>
+        <ion-list>
+          <h3>Sede : {{sedes.sede}}</h3>
+          <label>Direccion :{{sedes.direccion}}</label>
+        </ion-list>
+       
 
-      <ion-item>
-        <ion-label position="stacked">Tipo usuario : {{usuarioBD.tipoUsuario}}</ion-label>
       </ion-item>
       <br>
-  </ion-content>
+
+      <ion-item-options>
+        <ion-item-option (click)="irEditar()">
+          <ion-icon name="create"></ion-icon>Editar
+        </ion-item-option>
+        <ion-item-option color="danger">
+          <ion-icon name="trash"></ion-icon>Eliminar
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 
 
-  <ion-footer [translucent]="true">
-    <ion-toolbar color="warning">
-      <ion-text><h4 style="text-align: center">Creadores:Cami-Diego-Yerko</h4></ion-text>
-    </ion-toolbar>
-  </ion-footer>
+  <!-- fab placed to the bottom end -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" >
+    <ion-fab-button (click)="getCursos()">
+      <ion-icon name="add-circle"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
+
+<ion-footer collapse="fade">
+  <ion-toolbar color="warning">
+        <ion-text color="dark"><h5 style="text-align: center;">Creado por: Cami-Diego-Yerko</h5>
+        </ion-text> 
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,54 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "sede": "Sede Alameda",
+            "direccion": "Valeria Ruminot"
+        },
+        {
+            "id": 2,
+            "sede": "Sede Antonio Varas",
+            "direccion": "Camila Bravo"
+        },
+        {
+            "id": 3,
+            "sede": "Sede Maipú",
+            "direccion": "Jose Pablo Acuña"
+        },
+        {
+            "id": 4,
+            "sede": "Sede Padre Alonso de Ovalle",
+            "direccion": "Sandra Olea"
+        },
+        {
+            "id": 5,
+            "sede": "Sede Plaza Norte",
+            "direccion": "Carlos Valenzuela"
+        },
+        {
+            "id": 6,
+            "sede": "Sede Plaza Oeste",
+            "profesor": "Eugenio Paredes"
+        },
+        {
+            "id": 7,
+            "sede": "Sede Plaza Vespucio",
+            "direccion": "Cristobal Molina"
+        },
+        {
+            "id": 7,
+            "sede": "Sede Puente Alto",
+            "direccion": "Cristobal Molina"
+        },
+        {
+            "id": 7,
+            "sede": "Sede San Bernardo",
+            "direccion": "Cristobal Molina"
+        },
+        {
+            "id": 7,
+            "sede": "Sede San Carlos de Apoquindo",
+            "direccion": "Cristobal Molina"
+        }
+    ]
+}
