@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; import { Observable } from 'rxjs';
-;
+import { HttpClient } from '@angular/common/http';
+import {map} from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,16 @@ export class ApiService {
   apiUrl = "https://jsonplaceholder.typicode.com"
 
   constructor(private http: HttpClient) { }
+
+  getUsers(){
+    return this.http
+    .get("assets/files/cursos.json")
+    .pipe(
+      map((res:any) =>{
+        return res.data
+      })
+    )
+  }
 
 
   getPosts() {
@@ -56,8 +67,9 @@ export class ApiService {
       .then((response) => response.json())
       .then((json) => console.log(json));
   }
+
+  
   ngOnInit() {
-    this.getPosts()
   }
 
 

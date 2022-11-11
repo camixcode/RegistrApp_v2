@@ -23,22 +23,35 @@ export class LoginPage implements OnInit {
   ) { }
   usuario = new Usuario();
   usuarioBD = new Usuario();
-
+  arrayPosts:any;
+  cursos : [];
 
 
   ngOnInit() {
+    
     this.getSedes();
     
+    
   }
+
   
   getSedes(){
-    return this.http
-    .get("assets/files/cursos.json")
-    .pipe(
-      map((res:any) =>{
-        return res.data
-      })
-    )
+    this.api.getUsers().subscribe(res =>{
+      console.log("Res",res)
+      this.cursos = res;
+    } )
+  }
+  secondWay(){
+    this.http.get("assets/cursos.json").subscribe(data =>{
+      console.log(data);      
+    })
+  }
+  
+  getPosts() { //llamamos a la funcion getPost de nuestro servicio.
+    this.api.getPosts()
+    .then(data => {
+      this.arrayPosts = data;
+    });
   }
   
   async ingresar() {
