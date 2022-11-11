@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { Usuario } from '../models/usuario';
+import { ApiService } from '../services/api.service';
+import {HttpClient} from '@angular/common/http';
+import { map } from 'rxjs/internal/operators/map';
 
 
 @Component({
@@ -14,7 +17,9 @@ export class LoginPage implements OnInit {
   constructor(
     private alertController: AlertController,
     private activatedRoute: ActivatedRoute,
-    public loadingCtrl: LoadingController
+    public loadingCtrl: LoadingController,
+    public api : ApiService,
+    public http : HttpClient
   ) { }
   usuario = new Usuario();
   usuarioBD = new Usuario();
@@ -22,6 +27,18 @@ export class LoginPage implements OnInit {
 
 
   ngOnInit() {
+    this.getSedes();
+    
+  }
+  
+  getSedes(){
+    return this.http
+    .get("assets/files/cursos.json")
+    .pipe(
+      map((res:any) =>{
+        return res.data
+      })
+    )
   }
   
   async ingresar() {

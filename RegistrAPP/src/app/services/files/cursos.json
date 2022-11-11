@@ -1,0 +1,33 @@
+{
+    "data": [
+        {   "id":1,
+            "curso":"Programacion APP Mobile",
+            "profesor":"Valeria Ruminot"
+        },
+        {   "id":2,
+            "curso":"Ingles Intermedio",
+            "profesor":"Camila Bravo"
+        },
+        {   "id":3,
+            "curso":"Calidad de sofware",
+            "profesor":"Jose Pablo Acuña"
+        },
+        {   "id":4,
+            "curso":"Arquitectura de sofware",
+            "profesor":"Sandra Olea"
+        },
+        {   "id":5,
+            "curso":"Etica",
+            "profesor":"Carlos Valenzuela"
+        },
+        {   "id":6,
+            "curso":"Principios de fe cristiana",
+            "profesor":"Eugenio Paredes"
+        },
+        {   "id":7,
+            "curso":"Proceso portafolio",
+            "profesor":"Cristobal Molina"
+
+        }
+    ]
+}

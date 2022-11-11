@@ -12,11 +12,11 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
 
-  getPosts(){
-    return new Promise(resolve=>{
-      this.http.get(this.apiUrl).subscribe(data=>{
-          resolve(data);
-      },error=>{
+  getPosts() {
+    return new Promise(resolve => {
+      this.http.get(this.apiUrl).subscribe(data => {
+        resolve(data);
+      }, error => {
         console.log(error);
       });
     });
@@ -32,9 +32,33 @@ export class ApiService {
         });
     });
   }
+
+  obtenerRecurso() {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  }
+
+
+
+  crearRecurso() {
+    fetch('https://jsonplaceholder.typicode.com/posts', {
+      method: 'POST',
+      body: JSON.stringify({
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
+  }
   ngOnInit() {
     this.getPosts()
   }
 
-  
+
 }
