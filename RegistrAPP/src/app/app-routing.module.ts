@@ -55,6 +55,10 @@ const routes: Routes = [
     path: 'perfil-docente',
     loadChildren: () => import('./perfil-docente/perfil-docente.module').then( m => m.PerfilDocentePageModule)
   },
+  {
+    path: 'splash',
+    loadChildren: () => import('./splash/splash.module').then( m => m.SplashPageModule)
+  },
 
 
   
