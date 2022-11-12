@@ -32,6 +32,7 @@ export class CursoPage implements OnInit {
   ngOnInit() {
 
     this.getCursos();
+    this.api.obtenerRecurso();
     
     
   }

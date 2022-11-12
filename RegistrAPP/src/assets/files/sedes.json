@@ -3,52 +3,68 @@
         {
             "id": 1,
             "sede": "Sede Alameda",
-            "direccion": "Valeria Ruminot"
+            "direccion": " Av. España 8, Santiago Centro",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/Alameda.jpg"
         },
         {
             "id": 2,
             "sede": "Sede Antonio Varas",
-            "direccion": "Camila Bravo"
+            "direccion": "Antonio Varas 666, Providencia",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/Antonio-varas.jpg"
         },
         {
             "id": 3,
             "sede": "Sede Maipú",
-            "direccion": "Jose Pablo Acuña"
+            "direccion": "Av. Esquina Blanca 501, Maipú.",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/02/sede_maipu-1.jpg"
         },
         {
             "id": 4,
             "sede": "Sede Padre Alonso de Ovalle",
-            "direccion": "Sandra Olea"
+            "direccion": " Padre Alonso de Ovalle 1586, Santiago Centro",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/Padre_alonso_ovalle_sede.jpg"
         },
         {
             "id": 5,
             "sede": "Sede Plaza Norte",
-            "direccion": "Carlos Valenzuela"
+            "direccion": "Calle Nueva 1660, Huechuraba",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/Plaza-norte.jpg"
         },
         {
             "id": 6,
             "sede": "Sede Plaza Oeste",
-            "profesor": "Eugenio Paredes"
+            "direccion": "Av. Américo Vespucio 1501, Mall Plaza Oeste, Cerrillos.",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/05/header-sede-plaza-oeste.png"
         },
         {
             "id": 7,
             "sede": "Sede Plaza Vespucio",
-            "direccion": "Cristobal Molina"
+            "direccion": "Froilán Roa 7107, Mall Plaza Vespucio, La Florida.",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/plaza-vespucio.jpg"
         },
         {
-            "id": 7,
+            "id": 8,
             "sede": "Sede Puente Alto",
-            "direccion": "Cristobal Molina"
+            "direccion": "Av. Concha y Toro 1340 c/San Carlos, Puente Alto.",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/Puente-alto.jpg"
         },
         {
-            "id": 7,
+            "id": 9,
             "sede": "Sede San Bernardo",
-            "direccion": "Cristobal Molina"
+            "direccion": "Freire 857, San Bernardo",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/san-bernardo.jpg"
         },
         {
-            "id": 7,
+            "id": 10,
             "sede": "Sede San Carlos de Apoquindo",
-            "direccion": "Cristobal Molina"
+            "direccion": "Camino El Alba 12881, Las Condes.",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/San-carlos-apoquindo.jpg"
+        },
+        {
+            "id": 11,
+            "sede": "Sede San Joaquin",
+            "direccion": "Av. Vicuña Mackenna 4917, Metro San Joaquín, San Joaquín",
+            "imagen": "https://www.duoc.cl/wp-content/uploads/2020/06/san-joaquin.jpg"
         }
     ]
 }
