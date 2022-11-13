@@ -24,14 +24,27 @@ export class SedesPage implements OnInit {
     public api : ApiService,
   ) { }
   sedes =[];
+  sedesID =[]
   ngOnInit() {
     this.getSede();
+
   }
-  getSede(){
+  getSedes(){
     this.api.getSedes().subscribe(res =>{
       console.log("Res",res)
       this.sedes = res;
     } )
+  }
+
+  getSede(){
+    this.api.getSedes().subscribe(res =>{
+      console.log("Res",res)
+      this.sedes = res;
+      const id = this.sedes.filter( (e) => e.id=='1');
+      this.sedes= id;
+      console.log(this.sedes);
+    } )
+    
   }
 
 }

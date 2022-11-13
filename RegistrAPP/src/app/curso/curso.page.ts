@@ -33,6 +33,8 @@ export class CursoPage implements OnInit {
 
     this.getCursos();
     this.api.obtenerRecurso();
+
+
     
     
   }
@@ -44,12 +46,7 @@ export class CursoPage implements OnInit {
       this.cursos = res;
     } )
   }
-  getSede(){
-    this.api.getSedes().subscribe(res =>{
-      console.log("Res",res)
-      this.sedes = res;
-    } )
-  }
+  
 
   getItems($event){
     const valor = $event.target.value;
