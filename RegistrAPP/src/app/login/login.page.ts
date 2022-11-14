@@ -5,6 +5,7 @@ import { Usuario } from '../models/usuario';
 import { ApiService } from '../services/api.service';
 import {HttpClient} from '@angular/common/http';
 import { map } from 'rxjs/internal/operators/map';
+import { FirestoreService } from '../services/firestore.service';
 
 
 @Component({
@@ -19,12 +20,15 @@ export class LoginPage implements OnInit {
     private activatedRoute: ActivatedRoute,
     public loadingCtrl: LoadingController,
     public api : ApiService,
-    public http : HttpClient
+    public http : HttpClient,
+    public fireStore : FirestoreService,
   ) { }
   usuario = new Usuario();
   usuarioBD = new Usuario();
   arrayPosts:any;
-  cursos : [];
+  private path = 'Usuario/';
+  usuarioFS = [];
+  sedes =[];
 
 
   ngOnInit() {
@@ -36,9 +40,9 @@ export class LoginPage implements OnInit {
 
   
   getSedes(){
-    this.api.getUsers().subscribe(res =>{
+    this.api.getSedes().subscribe(res =>{
       console.log("Res",res)
-      this.cursos = res;
+      this.sedes = res;
     } )
   }
   secondWay(){
@@ -55,12 +59,16 @@ export class LoginPage implements OnInit {
   }
   
   async ingresar() {
-
-    let usuarioBD = JSON.parse(localStorage.getItem('usuarioBD'));
-    // let usuario = JSON.parse(localStorage.getItem('usuarioBD'));
+    
+    this.fireStore.getUsuario(this.path,'nombreUsuario',this.usuario.nombreUsuario).subscribe(res =>{
+      
+      this.usuarioFS= res;
+      this.usuarioBD=this.usuarioFS[0];
+      console.log(this.usuarioBD.nombre)
+    })
     
 
-    if(this.usuario.nombreUsuario==usuarioBD.nombreUsuario && this.usuario.password==usuarioBD.password){
+    if(this.usuario.nombreUsuario==this.usuarioBD.nombreUsuario && this.usuario.password==this.usuarioBD.password){
       const res = await this.loadingCtrl.create({
         message: 'Validando datos'
       });
@@ -73,7 +81,7 @@ export class LoginPage implements OnInit {
 
 
 
-    }else if (this.usuario.nombreUsuario==usuarioBD.nombreUsuario && this.usuario.password != usuarioBD.password){
+    }else if (this.usuario.nombreUsuario==this.usuarioBD.nombreUsuario && this.usuario.password != this.usuarioBD.password){
       const alert = await this.alertController.create({
         subHeader: 'Usuario',
         message: 'Error contraseña incorrecta',
@@ -81,7 +89,7 @@ export class LoginPage implements OnInit {
       });
   
       await alert.present();
-    }else if(this.usuario.nombreUsuario!=usuarioBD.nombreUsuario){
+    }else if(this.usuario.nombreUsuario!=this.usuarioBD.nombreUsuario){
       const alert = await this.alertController.create({
         subHeader: 'Usuario',
         message: 'Error Usuario no registrado',
@@ -89,8 +97,21 @@ export class LoginPage implements OnInit {
       });
   
       await alert.present();
+      this.getUsuario();
     }
+
+    
   }
+  getUsuario(){
+    this.fireStore.getUsuario(this.path,'nombreUsuario',this.usuario.nombreUsuario).subscribe(res =>{
+      
+      this.usuarioFS= res;
+      this.usuarioBD=this.usuarioFS[0];
+      console.log(this.usuarioBD.nombre)
+    })
+  }
+
+  
 
 
 }

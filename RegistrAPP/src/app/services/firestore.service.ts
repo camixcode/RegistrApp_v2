@@ -25,4 +25,9 @@ export class FirestoreService {
     const collection = this.fireStore.collection(path, ref => ref.where(parametro, '==',value));
     return collection.valueChanges();
   }
+
+  getUsuario(path:string , parametro: string, value: string){
+    const collection = this.fireStore.collection(path, ref => ref.where(parametro, '==',value));
+    return collection.valueChanges();
+  }
 }
