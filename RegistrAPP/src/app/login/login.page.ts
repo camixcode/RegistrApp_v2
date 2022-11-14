@@ -75,7 +75,8 @@ export class LoginPage implements OnInit {
      res.present()
 
       setTimeout("location.href='/perfil'", 5000);
-      localStorage.setItem('ingresado','true')
+      localStorage.setItem('ingresado','true');
+      localStorage.setItem('id',JSON.stringify(this.usuarioBD.id));
       let secionIniciada = JSON.parse(localStorage.getItem('ingresado'));
       console.log(secionIniciada)
 
@@ -97,7 +98,6 @@ export class LoginPage implements OnInit {
       });
   
       await alert.present();
-      this.getUsuario();
     }
 
     
