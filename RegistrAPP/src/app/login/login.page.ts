@@ -68,13 +68,14 @@ export class LoginPage implements OnInit {
     })
     
 
-    if(this.usuario.nombreUsuario==this.usuarioBD.nombreUsuario && this.usuario.password==this.usuarioBD.password){
+    if(this.usuario.nombreUsuario==this.usuarioBD.nombreUsuario && this.usuario.password==this.usuarioBD.password ){
       const res = await this.loadingCtrl.create({
         message: 'Validando datos'
       });
      res.present()
+    
+        setTimeout("location.href='/perfil'", 5000);
 
-      setTimeout("location.href='/perfil'", 5000);
       localStorage.setItem('ingresado','true');
       localStorage.setItem('id',JSON.stringify(this.usuarioBD.id));
       let secionIniciada = JSON.parse(localStorage.getItem('ingresado'));
