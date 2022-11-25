@@ -61,7 +61,6 @@ export class LoginPage implements OnInit {
   async ingresar() {
     
     this.fireStore.getUsuario(this.path,'nombreUsuario',this.usuario.nombreUsuario).subscribe(res =>{
-      
       this.usuarioFS= res;
       this.usuarioBD=this.usuarioFS[0];
       console.log(this.usuarioBD.nombre)
