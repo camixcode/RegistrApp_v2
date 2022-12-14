@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { PerfilPage } from './perfil.page';
-import { SedeAlumnoComponent } from './sede-alumno/sede-alumno.component';
+import { SedeAlumnoComponent } from '../sede-alumno/sede-alumno.component';
 
 const routes: Routes = [
   {

@@ -29,6 +29,7 @@ export class LoginPage implements OnInit {
   private path = 'Usuario/';
   usuarioFS = [];
   sedes =[];
+  correo="";
 
 
   ngOnInit() {
@@ -60,14 +61,15 @@ export class LoginPage implements OnInit {
   
   async ingresar() {
     
-    this.fireStore.getUsuario(this.path,'nombreUsuario',this.usuario.nombreUsuario).subscribe(res =>{
+    this.fireStore.getUsuario(this.path,'correo',this.usuario.correo).subscribe(res =>{
       this.usuarioFS= res;
       this.usuarioBD=this.usuarioFS[0];
       console.log(this.usuarioBD.nombre)
+      console.log(this.usuarioBD.correo)
     })
     
 
-    if(this.usuario.nombreUsuario==this.usuarioBD.nombreUsuario && this.usuario.password==this.usuarioBD.password){
+    if(this.usuario.correo==this.usuarioBD.correo && this.usuario.password==this.usuarioBD.password){
       const res = await this.loadingCtrl.create({
         message: 'Validando datos'
       });
@@ -81,7 +83,7 @@ export class LoginPage implements OnInit {
 
 
 
-    }else if (this.usuario.nombreUsuario==this.usuarioBD.nombreUsuario && this.usuario.password != this.usuarioBD.password){
+    }else if (this.usuario.correo==this.usuarioBD.correo && this.usuario.password != this.usuarioBD.password){
       const alert = await this.alertController.create({
         subHeader: 'Usuario',
         message: 'Error contraseña incorrecta',
@@ -89,7 +91,7 @@ export class LoginPage implements OnInit {
       });
   
       await alert.present();
-    }else if(this.usuario.nombreUsuario!=this.usuarioBD.nombreUsuario){
+    }else if(this.usuario.correo!=this.usuarioBD.correo){
       const alert = await this.alertController.create({
         subHeader: 'Usuario',
         message: 'Error Usuario no registrado',
@@ -102,11 +104,11 @@ export class LoginPage implements OnInit {
     
   }
   getUsuario(){
-    this.fireStore.getUsuario(this.path,'nombreUsuario',this.usuario.nombreUsuario).subscribe(res =>{
-      
+    this.fireStore.getUsuario(this.path,'correo',this.usuario.correo).subscribe(res =>{
       this.usuarioFS= res;
       this.usuarioBD=this.usuarioFS[0];
-      console.log(this.usuarioBD.nombre)
+      this.correo=this.usuarioBD.correo;
+
     })
   }
 
