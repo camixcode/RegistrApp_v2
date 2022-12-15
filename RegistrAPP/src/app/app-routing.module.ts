@@ -69,6 +69,11 @@ const routes: Routes = [
     loadChildren: () => import('./login-google/login-google.module').then( m => m.LoginGooglePageModule),
     canActivate: [NoIngresarGuard]
   },
+  {
+    path: 'e404',
+    loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
+  },
+
 
 
 
