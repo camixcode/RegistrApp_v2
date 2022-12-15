@@ -11,3 +11,11 @@ export class Usuario {
     tipoUsuario: string
 
 }
+
+export interface User {
+    uid: string;
+    email: string;
+    displayName: string;
+    emailVerified: boolean;
+  }
+  

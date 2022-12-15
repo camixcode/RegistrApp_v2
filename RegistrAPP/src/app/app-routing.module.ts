@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'login-google',
     pathMatch: 'full'
   },
   { 
@@ -64,6 +64,12 @@ const routes: Routes = [
     path: 'sedes',
     loadChildren: () => import('./sedes/sedes.module').then( m => m.SedesPageModule)
   },
+  {
+    path: 'login-google',
+    loadChildren: () => import('./login-google/login-google.module').then( m => m.LoginGooglePageModule),
+    canActivate: [NoIngresarGuard]
+  },
+
 
 
   

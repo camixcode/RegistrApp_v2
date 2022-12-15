@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item lines="full">
+      <ion-label position="floating" >Email</ion-label>
+      <ion-input [(ngModel)]="usuario.correo" type="text" #email required></ion-input>
+    </ion-item>
+    <ion-item lines="full">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input minlength="3" maxlength="8" [(ngModel)]="usuario.password" type="password" #password required></ion-input>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" (click)="ingresar()" color="warning" expand="block">Login</ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <p class="ion-text-end">
+          <a routerLink="/forgot-password">Forgot password? </a>
+        </p>
+      </ion-col>
+    </ion-row>
+    <span class="center-span"> or </span>
+    <ion-row>
+      <ion-col>
+        <ion-button type="submit" color="warning" (click)="onLoginGoogle()" expand="block"
+          >Login with Google
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="ion-text-end">
+        <a routerLink="/register">Create an account </a>
+      </p>
+    </ion-col>
+  </ion-row>
+</ion-content>
+<mat-progress-bar mode="indeterminate"></mat-progress-bar>
+
+
+<ion-footer>
+  <ion-toolbar color="warning">
+        <ion-text color="dark"><h5 style="text-align: center;">Creado por: Cami-Diego-Yerko</h5>
+        </ion-text> 
+  </ion-toolbar>
+</ion-footer>
