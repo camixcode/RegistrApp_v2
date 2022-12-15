@@ -2,20 +2,25 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IngresarGuard } from './ingresar.guard';
 import { NoIngresarGuard } from './no-ingresar.guard';
-import { E404PageModule } from './pages/e404/e404.module';
+import { E404Page } from './pages/e404/e404.page';
+
 
 const routes: Routes = [
+
+  
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
+
+
 
   { 
     path: 'asistencia',
     loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
     canActivate: [IngresarGuard]
   },
-  { path: '**', component: E404PageModule },
+
 
   {
     path: 'perfil',
@@ -68,10 +73,7 @@ const routes: Routes = [
     loadChildren: () => import('./login-google/login-google.module').then( m => m.LoginGooglePageModule),
     canActivate: [NoIngresarGuard]
   },
-  {
-    path: '**',
-    loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
-  },
+  { path: '**', component: E404Page },
 
 
 
