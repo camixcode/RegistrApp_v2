@@ -2,22 +2,21 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IngresarGuard } from './ingresar.guard';
 import { NoIngresarGuard } from './no-ingresar.guard';
+import { E404PageModule } from './pages/e404/e404.module';
 
 const routes: Routes = [
   {
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
   },
-  {
-    path: '',
-    redirectTo: 'login-google',
-    pathMatch: 'full'
-  },
+
   { 
     path: 'asistencia',
     loadChildren: () => import('./asistencia/asistencia.module').then( m => m.AsistenciaPageModule),
     canActivate: [IngresarGuard]
   },
+  { path: '**', component: E404PageModule },
+
   {
     path: 'perfil',
     loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule),
@@ -70,7 +69,7 @@ const routes: Routes = [
     canActivate: [NoIngresarGuard]
   },
   {
-    path: 'e404',
+    path: '**',
     loadChildren: () => import('./pages/e404/e404.module').then( m => m.E404PageModule)
   },
 
