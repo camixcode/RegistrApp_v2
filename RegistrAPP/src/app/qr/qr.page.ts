@@ -33,6 +33,7 @@ export class QrPage implements OnInit {
 
     async startScan(){
       try{
+        
         const permission = await this.checkPermission();
         if(!permission){
           return;
