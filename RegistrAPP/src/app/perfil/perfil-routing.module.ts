@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { PerfilPage } from './perfil.page';
 import { SedeAlumnoComponent } from '../sede-alumno/sede-alumno.component';
+import { PerfilPage } from './perfil.page';
 
 const routes: Routes = [
   {
@@ -10,10 +9,8 @@ const routes: Routes = [
     component: PerfilPage,
     children: [
       {path: 'sede-alumno',
-      component: SedeAlumnoComponent}]
-  },
-  
-
+      component: SedeAlumnoComponent}
+    ]},
 ];
 
 @NgModule({

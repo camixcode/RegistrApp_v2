@@ -1,42 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-title> <p class="ion-text-center"> Registrapp</p> </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-item lines="full">
-      <ion-label position="floating" >Email</ion-label>
-      <ion-input [(ngModel)]="usuario.correo" type="text" #email required></ion-input>
-    </ion-item>
-    <ion-item lines="full">
-      <ion-label position="floating">Password</ion-label>
-      <ion-input minlength="3" maxlength="8" [(ngModel)]="usuario.password" type="password" #password required></ion-input>
-    </ion-item>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" (click)="ingresar()" color="warning" expand="block">Login</ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col>
-        <p class="ion-text-end">
-          <a routerLink="/forgot-password">Forgot password? </a>
-        </p>
-      </ion-col>
-    </ion-row>
-    <span class="center-span"> or </span>
-    <ion-row>
-      <ion-col>
-        <ion-button type="submit" color="warning" (click)="onLoginGoogle()" expand="block"
-          >Login with Google
-        </ion-button>
-      </ion-col>
-    </ion-row>
+  <br>
+  <center>
+    <ion-img style="width: 150px; height: 150px;" src="assets/icon/logo.png"></ion-img>
+  </center>
+  <ion-item lines="full">
+    <ion-label position="floating">Correo</ion-label>
+    <ion-input [(ngModel)]="usuario.correo" type="text" #email required></ion-input>
+  </ion-item>
+  <ion-item lines="full">
+    <ion-label position="floating">Contraseña</ion-label>
+    <ion-input minlength="3" maxlength="8" [(ngModel)]="usuario.password" type="password" #password
+      required></ion-input>
+  </ion-item>
   <ion-row>
     <ion-col>
-      <p class="ion-text-end">
-        <a routerLink="/register">Create an account </a>
+      <ion-button type="submit" (click)="ingresar()" color="warning" expand="block">Acceder</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="ion-text-center">
+        <a routerLink="/forgot-password">Recuperar contraseña</a>
+      </p>
+    </ion-col>
+  </ion-row>
+  <span class="center-span"></span>
+  <ion-row>
+    <ion-col>
+      <ion-button type="submit" color="warning" (click)="onLoginGoogle()" expand="block">Acceder con Google
+      </ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col>
+      <p class="ion-text-center">
+        <a routerLink="/register"></a>
       </p>
     </ion-col>
   </ion-row>
@@ -46,7 +50,8 @@
 
 <ion-footer>
   <ion-toolbar color="warning">
-        <ion-text color="dark"><h5 style="text-align: center;">Created by: Diego, Cami y Yerko. Alumnos Duoc Uc.</h5>
-        </ion-text> 
+    <ion-text color="dark">
+      <h5 style="text-align: center;">Created by: Diego, Cami y Yerko. Alumnos Duoc Uc.</h5>
+    </ion-text>
   </ion-toolbar>
 </ion-footer>

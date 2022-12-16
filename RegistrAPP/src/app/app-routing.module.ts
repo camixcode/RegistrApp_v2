@@ -3,10 +3,17 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IngresarGuard } from './ingresar.guard';
 import { NoIngresarGuard } from './no-ingresar.guard';
 import { E404Page } from './pages/e404/e404.page';
+import { SedeAlumnoComponent } from './sede-alumno/sede-alumno.component';
 
 
 const routes: Routes = [
 
+
+  {
+    path: '',
+    redirectTo: 'splash',
+    pathMatch: 'full',
+  },
   
   {
     path: 'home',
@@ -74,6 +81,14 @@ const routes: Routes = [
     canActivate: [NoIngresarGuard]
   },
   { path: '**', component: E404Page },
+
+  {
+    path: 'sede-alumno', component:SedeAlumnoComponent
+  },
+  {
+    path: 'leer-qr',
+    loadChildren: () => import('./leer-qr/leer-qr.module').then( m => m.LeerQRPageModule)
+  },
 
 
 

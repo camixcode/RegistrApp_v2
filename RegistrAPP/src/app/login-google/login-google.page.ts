@@ -24,6 +24,7 @@ export class LoginGooglePage implements OnInit {
     public http: HttpClient,
     public fireStore: FirestoreService,) { }
 
+    
   usuario = new Usuario();
   usuarioBD = new Usuario();
   arrayPosts: any;
