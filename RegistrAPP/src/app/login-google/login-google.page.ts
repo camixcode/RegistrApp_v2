@@ -34,7 +34,7 @@ export class LoginGooglePage implements OnInit {
 
   async ingresar() {
 
-    this.fireStore.getUsuario(this.path, 'correo', this.usuario.correo).subscribe(res => {
+    this.fireStore.getColeccion(this.path, 'correo', this.usuario.correo).subscribe(res => {
       this.usuarioFS = res;
       this.usuarioBD = this.usuarioFS[0];
       console.log(this.usuarioBD.nombre)
@@ -75,14 +75,6 @@ export class LoginGooglePage implements OnInit {
     }
 
 
-  }
-  getUsuario() {
-    this.fireStore.getUsuario(this.path, 'correo', this.usuario.correo).subscribe(res => {
-      this.usuarioFS = res;
-      this.usuarioBD = this.usuarioFS[0];
-      this.correo = this.usuarioBD.correo;
-
-    })
   }
 
 

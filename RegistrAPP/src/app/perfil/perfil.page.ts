@@ -31,7 +31,7 @@ export class PerfilPage implements OnInit {
   private path = 'Usuario/';
   usuarioFS = [];
   usuario = JSON.parse(localStorage.getItem('id'));
-  usuarioBD = this.fireStore.getUsuario(this.path, 'id', this.usuario).subscribe(res => {
+  usuarioBD = this.fireStore.getColeccion(this.path, 'id', this.usuario).subscribe(res => {
 
     this.usuarioFS = res;
     this.usuarioBD = this.usuarioFS[0];
@@ -54,6 +54,8 @@ export class PerfilPage implements OnInit {
     res.present()
     setTimeout("location.href='/login'", 3000);
     localStorage.removeItem('ingresado');
+    localStorage.removeItem('id');
+
     let secionIniciada = JSON.parse(localStorage.getItem('ingresado'));
     console.log(false)
   }

@@ -2,22 +2,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-export interface PeriodicElement {
-  Dia: number;
-  Curso: string;
-  PorcAsistencia: string;
-}
-const ELEMENT_DATA: PeriodicElement[] = [
-  {Dia: 1, Curso: 'Ingles', PorcAsistencia: '90'},
-  {Dia: 2, Curso: 'Mobil', PorcAsistencia: '90'},
-  {Dia: 3, Curso: 'Ética', PorcAsistencia: '90'},
-  {Dia: 4, Curso: 'Software', PorcAsistencia: '90'},
-  {Dia: 5, Curso: 'Calidad', PorcAsistencia: '90'},
-  {Dia: 6, Curso: 'Portafolio', PorcAsistencia: '90'},
-  {Dia: 7, Curso: 'Estadistica', PorcAsistencia: '90'},
-  {Dia: 8, Curso: 'Fe Cristiana', PorcAsistencia: '90'},
+import { FirestoreService } from '../services/firestore.service';
+import { Asistencia } from '../models/asistencia';
 
-];
+
 @Component({
   selector: 'app-asistencia',
   templateUrl: './asistencia.page.html',
@@ -26,20 +14,38 @@ const ELEMENT_DATA: PeriodicElement[] = [
 
 export class AsistenciaPage implements OnInit {
 
-  displayedColumns: string[] = ['Dia', 'Curso', 'PorcAsistencia'];
-  dataSource = new MatTableDataSource <PeriodicElement> (ELEMENT_DATA);
+ 
+ 
 
   @ViewChild(MatPaginator) paginator! : MatPaginator;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
 
   constructor(
-    public loadingCtrl: LoadingController
-
+    public loadingCtrl: LoadingController,
+    public fireStore: FirestoreService,
   ) { }
+  
+  asistencia = new Asistencia();
+  asistenciaBD = new Asistencia();
+  arrayPosts: any;
+  private path = 'asistencia/';
+  asistenciaFS = [];
+  sedes = [];
+  correo = "";
+  id_asis:any;
 
+cargarAsistencia() {
+    this.id_asis = JSON.parse(localStorage.getItem('id'));
+    console.log(this.id_asis)
+    this.fireStore.getColeccion(this.path, 'id_alumno',this.id_asis).subscribe(res => {
+      this.asistenciaFS = res;
+      this.asistenciaBD = this.asistenciaFS[0];
+      console.log(this.asistencia.id_alumno)
+      console.log(this.asistencia.id_asistencia)
+    })
+  }
+
+  
   async salir(){
     const res = await this.loadingCtrl.create({
       message: 'Cerrando sesion'
@@ -52,9 +58,7 @@ export class AsistenciaPage implements OnInit {
   }
   
   ngOnInit() {
+    this.cargarAsistencia()
   }
 
-}
-function ngAfterViewInit() {
-  throw new Error('Function not implemented.');
 }
