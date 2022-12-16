@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { IngresarGuard } from './ingresar.guard';
+
 import { NoIngresarGuard } from './no-ingresar.guard';
 import { E404Page } from './pages/e404/e404.page';
 import { SedeAlumnoComponent } from './sede-alumno/sede-alumno.component';
@@ -80,8 +81,6 @@ const routes: Routes = [
     loadChildren: () => import('./login-google/login-google.module').then( m => m.LoginGooglePageModule),
     canActivate: [NoIngresarGuard]
   },
-  { path: '**', component: E404Page },
-
   {
     path: 'sede-alumno', component:SedeAlumnoComponent
   },
@@ -90,12 +89,12 @@ const routes: Routes = [
     loadChildren: () => import('./leer-qr/leer-qr.module').then( m => m.LeerQRPageModule)
   },
 
+  {
+    path: 'lista-prof',
+    loadChildren: () => import('./lista-prof/lista-prof.module').then( m => m.ListaProfPageModule)
+  },
 
-
-
-  
-
-
+  { path: '**', component: E404Page },
 ];
 
 @NgModule({
