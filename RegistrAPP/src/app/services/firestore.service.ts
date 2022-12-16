@@ -31,9 +31,9 @@ export class FirestoreService {
     return collection.valueChanges();
   }
 
-  crearColeccion(path:string , id: string, data: string){
+  crearColeccion(data: any ,path:string , id: string ){
     const collection = this.fireStore.collection(path);
-    return collection.valueChanges();
+    return collection.doc(id).set(data);
   }
 
   
