@@ -10,9 +10,7 @@ export class AppComponent {
   constructor(
     public router:Router
   ) {
-    this.initializeApp();
+    
   }
-  initializeApp() {
-    this.router.navigateByUrl('splash');
-  }
+
 }

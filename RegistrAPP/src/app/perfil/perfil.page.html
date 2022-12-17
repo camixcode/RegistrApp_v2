@@ -67,14 +67,13 @@
 <!-- CONTENIDO DE PAGINA -->
   
 <ion-content [fullscreen]="true" class="ion-padding">
-  
-    <br>
       <h3 style="text-align: center;">Perfil Alumno</h3>
       <center>
         <ion-avatar>
         <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg" />
       </ion-avatar>
     </center>
+    <br>
       <ion-item>
         <ion-label position="stacked">Nombre usuario : {{usuarioBD.nombreUsuario}}</ion-label>
       </ion-item>
@@ -102,7 +101,8 @@
       </ion-item>
       <br>
       <ion-router-outlet></ion-router-outlet>
-      <ion-button class="button button-block button-positive" [routerLink]="['perfil/sede-alumno']">Ver sede</ion-button>
+      <ion-button class="button button-block button-positive" [routerLink]="['/sedes']">Ver       sede</ion-button>
+      <ion-button class="button button-block button-positive" [routerLink]="['/curso']">Ver       Cursos</ion-button>
   </ion-content>
 
 

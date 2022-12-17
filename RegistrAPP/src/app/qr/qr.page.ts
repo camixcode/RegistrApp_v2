@@ -14,7 +14,6 @@ export class QrPage implements OnInit {
   qrCodeString = 'este es un mensaje de prueba'
   scannerResult: any;
 
-
   constructor(
     public loadingCtrl: LoadingController
   ) { }
@@ -52,20 +51,15 @@ export class QrPage implements OnInit {
     }
 
 
-
-
-
-
-
   async salir(){
     const res = await this.loadingCtrl.create({
       message: 'Cerrando sesion'
     });
-   res.present()
-      setTimeout("location.href='/login'", 3000);
-      localStorage.removeItem('ingresado');
-      let secionIniciada = JSON.parse(localStorage.getItem('ingresado'));
-      console.log(secionIniciada)
+  //  res.present()
+  //     setTimeout("location.href='/login'", 3000);
+  //     localStorage.removeItem('ingresado');
+  //     let secionIniciada = JSON.parse(localStorage.getItem('ingresado'));
+  //     console.log(secionIniciada)
   }
 
   ngOnInit() {

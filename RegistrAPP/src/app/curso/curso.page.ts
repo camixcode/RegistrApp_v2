@@ -32,10 +32,6 @@ export class CursoPage implements OnInit {
   ngOnInit() {
 
     this.getCursos();
-
-
-    
-    
   }
 
   
@@ -46,7 +42,7 @@ export class CursoPage implements OnInit {
     } )
   }
   
-
+// BUSCAR INFO
   getItems($event){
     const valor = $event.target.value;
     console.log(valor)
@@ -64,33 +60,19 @@ export class CursoPage implements OnInit {
     return valor;
   }
 
-
-  irEditar(){
- 
-      this.router.navigate(['/editar-curso'])
-
-  }
-
   getCursos(){
     this.fireStore.getCollection(this.path).subscribe(res =>{
       console.log(res)
       this.cursos= res;
-    })
-    
-
+    }) 
   }
-
+  
   getCurso(){
-    this.fireStore.getCollectionId(this.path,'curso','Etica').subscribe(res =>{
+    this.fireStore.getCollectionId(this.path,'','').subscribe(res =>{
       console.log(res)
       this.cursos= res;
     })
     
-
   }
-  irAgregar(){
- 
-    this.router.navigate(['/agregar-curso'])
 
-}
 }
